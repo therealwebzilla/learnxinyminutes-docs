@@ -69,6 +69,8 @@ $sum        = 1 + 1; // 2
 $difference = 2 - 1; // 1
 $product    = 2 * 2; // 4
 $quotient   = 2 / 1; // 2
+$exponentiation = 2 ** 1; // 2
+$modulous = 2 % 1; // 0
 
 // Shorthand arithmetic
 $number = 0;
@@ -390,6 +392,35 @@ for ($i = 0; $i < 5; $i++) {
     echo $i;
 } // Prints "0124"
 
+// multi-level break
+
+$i=0; $j=0; 
+while ($i < 5) { 
+    while ($j < 5) { 
+        if ($i===3 ) 
+        { break 2; // Exit out of the two enclosing while loops
+        } 
+    echo $j++; 
+    } 
+echo $i++; 
+} // Prints "01234" 
+
+// multi-level continue
+
+$i = 0;
+while ($i++ < 2) {
+    echo "Outer Loop ";
+    while (1) {
+        echo "Middle Loop ";
+        while (1) {
+            echo "Inner Loop ";
+            continue 3;
+        }
+        echo "This line is never output." . PHP_EOL;
+    }
+    echo "Neither is this line." . PHP_EOL;
+}
+// output is "Outer Loop Middle Loop Inner Loop Outer Loop Middle Loop Inner Loop "
 
 /********************************
  * Functions
